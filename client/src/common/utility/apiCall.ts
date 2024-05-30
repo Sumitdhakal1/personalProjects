@@ -56,10 +56,13 @@ export async function ContactMe(email: String, subject: String, message: String)
 
 }
 
-export async function getPokemon(name:any){
+export async function getPokemon(name:any,url:any,limit=20,offset=0){
    const response = await instance.get('/poke-api',{
     params:{
-        name:name
+        name:name,
+        url:url,
+        limit,
+        offset
     }
    })
    const data = response.data.data;
